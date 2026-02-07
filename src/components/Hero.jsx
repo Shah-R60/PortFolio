@@ -1,0 +1,84 @@
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
+import { ReactTyped } from 'react-typed';
+import backCloud from '../assets/backCloud.png';
+import programmer from '../assets/programmer.png';
+
+const Hero = () => {
+  return (
+    <section 
+      id="home" 
+      className="flex items-center relative bg-gradient-to-br from-cyan-300 via-cyan-200 to-blue-200"
+      style={{
+        backgroundImage: `url(${backCloud})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: 'calc(100vh - 80px)',
+      }}
+    >
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem', width: '100%' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+          {/* Left Content - Text */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+              Hi, I am Rahul
+            </h1>
+            
+            {/* Typing Effect */}
+            <div className="text-3xl md:text-4xl font-bold min-h-[50px]">
+              <ReactTyped
+                strings={[
+                  'Front-End Developer',
+                  'Full-Stack Developer',
+                  'Code Enthusiast'
+                ]}
+                typeSpeed={50}
+                backSpeed={50}
+                loop
+                className="text-blue-600"
+              />
+            </div>
+
+            <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+              I am a Front-End / Full-Stack Developer. I am currently working
+              at CloudStok Technologies as a Front-End Developer.
+            </p>
+
+            {/* Social Icons */}
+            <div style={{ display: 'flex', gap: '1rem', paddingTop: '0.5rem' }}>
+              <a href="https://github.com/Shah-R60" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+                <FaGithub style={{ fontSize: '22px' }} />
+              </a>
+              <a href="https://www.linkedin.com/in/shah-rahul-1a33b4282/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+                <FaLinkedin style={{ fontSize: '22px' }} />
+              </a>
+              <a href="https://leetcode.com/u/Shah_Rahul/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+                <SiLeetcode style={{ fontSize: '22px' }} />
+              </a>
+            </div>
+
+            {/* Resume Button */}
+            <div style={{ paddingTop: '1rem' }}>
+              <a href="https://drive.google.com/file/d/1hbtk1tzxSDFYQSwI04vszDggpESTPXvi/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', width: '280px', padding: '14px 0', backgroundColor: '#3B82F6', color: 'white', borderRadius: '8px', border: 'none', fontSize: '18px', fontWeight: '500', cursor: 'pointer', boxShadow: '0 4px 14px rgba(59,130,246,0.4)', textAlign: 'center', textDecoration: 'none' }} className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                Resume
+              </a>
+            </div>
+          </div>
+
+          {/* Right Content - Image */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img
+              src={programmer}
+              alt="Developer illustration"
+              style={{ width: '100%', maxWidth: '520px' }}
+              className="drop-shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
