@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import { useTheme } from '../context/ThemeContext';
 
 const Contact = () => {
+  const { isDark, bgPrimary, textPrimary, textSecondary, textMuted, border } = useTheme();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,9 +29,9 @@ const Contact = () => {
   const inputStyle = {
     width: '100%',
     padding: '14px 16px',
-    backgroundColor: '#374151',
+    backgroundColor: isDark ? '#1e293b' : '#374151',
     color: '#fff',
-    border: 'none',
+    border: isDark ? '1px solid #334155' : 'none',
     borderRadius: '8px',
     fontSize: '0.95rem',
     outline: 'none',
@@ -37,7 +40,7 @@ const Contact = () => {
   const labelStyle = {
     display: 'block',
     fontWeight: '600',
-    color: '#1f2937',
+    color: textPrimary,
     marginBottom: '8px',
     fontSize: '0.95rem',
   };
@@ -49,9 +52,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" style={{ padding: '5rem 2rem', backgroundColor: '#ffffff' }}>
+    <section id="contact" style={{ padding: '5rem 2rem', backgroundColor: bgPrimary, transition: 'background-color 0.3s' }}>
       {/* Heading */}
-      <h2 style={{ textAlign: 'center', fontSize: '2.5rem', fontWeight: '800', color: '#1f2937', marginBottom: '3rem' }}>
+      <h2 style={{ textAlign: 'center', fontSize: '2.5rem', fontWeight: '800', color: textPrimary, marginBottom: '3rem' }}>
         Contact
       </h2>
 
@@ -61,7 +64,7 @@ const Contact = () => {
           <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#3b82f6', marginBottom: '0.5rem' }}>
             Connect with me
           </h3>
-          <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '500px' }}>
+          <p style={{ color: textMuted, fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '500px' }}>
             If you want to know more about me or my work, or if you would just
             like to say hello, send me a message. I'd love to hear from you.
           </p>
@@ -107,7 +110,7 @@ const Contact = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <a
                 href="mailto:shahrahul3600@gmail.com"
-                style={{ color: '#1f2937', fontSize: '0.9rem', textDecoration: 'underline' }}
+                style={{ color: textPrimary, fontSize: '0.9rem', textDecoration: 'underline' }}
               >
                 Send me email directly
               </a>
@@ -134,7 +137,7 @@ const Contact = () => {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem', paddingTop: '2rem' }}>
           {/* Email */}
           <div style={{ textAlign: 'center' }}>
-            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#1f2937', marginBottom: '0.5rem' }}>Email</h4>
+            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: textPrimary, marginBottom: '0.5rem' }}>Email</h4>
             <a
               href="mailto:shahrahul3600@gmail.com"
               style={{ color: '#3b82f6', fontSize: '0.95rem', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.5px' }}
@@ -145,7 +148,7 @@ const Contact = () => {
 
           {/* Address */}
           <div style={{ textAlign: 'center' }}>
-            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#1f2937', marginBottom: '0.5rem' }}>Address</h4>
+            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: textPrimary, marginBottom: '0.5rem' }}>Address</h4>
             <p style={{ color: '#3b82f6', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>
               IIITM GWALIOR, MADHYA PRADESH<br />INDIA
             </p>
@@ -153,7 +156,7 @@ const Contact = () => {
 
           {/* Social */}
           <div style={{ textAlign: 'center' }}>
-            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#1f2937', marginBottom: '1rem' }}>Social</h4>
+            <h4 style={{ fontSize: '1.5rem', fontWeight: '800', color: textPrimary, marginBottom: '1rem' }}>Social</h4>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
               {socialIcons.map((item, index) => (
                 <a
@@ -165,11 +168,11 @@ const Contact = () => {
                     width: '45px',
                     height: '45px',
                     borderRadius: '10px',
-                    border: '2px solid #9ca3af',
+                    border: `2px solid ${border}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#6b7280',
+                    color: textMuted,
                     fontSize: '1.25rem',
                     transition: 'all 0.3s',
                   }}

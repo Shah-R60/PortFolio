@@ -1,32 +1,40 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { ReactTyped } from 'react-typed';
+import { useTheme } from '../context/ThemeContext';
 import backCloud from '../assets/backCloud.png';
 import programmer from '../assets/programmer.png';
 
 const Hero = () => {
+  const { isDark, textPrimary, textSecondary, border } = useTheme();
+
   return (
     <section 
       id="home" 
-      className="flex items-center relative bg-gradient-to-br from-cyan-300 via-cyan-200 to-blue-200"
       style={{
-        backgroundImage: `url(${backCloud})`,
+        backgroundImage: isDark ? 'none' : `url(${backCloud})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         minHeight: 'calc(100vh - 80px)',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: isDark ? '#0f172a' : undefined,
+        background: isDark ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' : undefined,
+        transition: 'background-color 0.3s',
       }}
+      className={isDark ? '' : 'bg-gradient-to-br from-cyan-300 via-cyan-200 to-blue-200'}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem', width: '100%' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           {/* Left Content - Text */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 style={{ fontSize: '3.5rem', fontWeight: '700', color: textPrimary, lineHeight: '1.2' }}>
               Hi, I am Rahul
             </h1>
             
             {/* Typing Effect */}
-            <div className="text-3xl md:text-4xl font-bold min-h-[50px]">
+            <div style={{ fontSize: '2rem', fontWeight: '700', minHeight: '50px' }}>
               <ReactTyped
                 strings={[
                   'Front-End Developer',
@@ -40,20 +48,20 @@ const Hero = () => {
               />
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+            <p style={{ fontSize: '1.125rem', color: textSecondary, lineHeight: '1.7', maxWidth: '32rem' }}>
               I am a Front-End / Full-Stack Developer. I am currently working
               at CloudStok Technologies as a Front-End Developer.
             </p>
 
             {/* Social Icons */}
             <div style={{ display: 'flex', gap: '1rem', paddingTop: '0.5rem' }}>
-              <a href="https://github.com/Shah-R60" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+              <a href="https://github.com/Shah-R60" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: `2px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: textSecondary }}>
                 <FaGithub style={{ fontSize: '22px' }} />
               </a>
-              <a href="https://www.linkedin.com/in/shah-rahul-1a33b4282/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+              <a href="https://www.linkedin.com/in/shah-rahul-1a33b4282/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: `2px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: textSecondary }}>
                 <FaLinkedin style={{ fontSize: '22px' }} />
               </a>
-              <a href="https://leetcode.com/u/Shah_Rahul/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: '2px solid #9CA3AF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4B5563' }}>
+              <a href="https://leetcode.com/u/Shah_Rahul/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300" style={{ width: '45px', height: '45px', borderRadius: '12px', border: `2px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: textSecondary }}>
                 <SiLeetcode style={{ fontSize: '22px' }} />
               </a>
             </div>

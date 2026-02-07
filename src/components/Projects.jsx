@@ -1,6 +1,9 @@
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext';
 
 const Projects = () => {
+  const { bgSecondary, textPrimary, textSecondary, textMuted } = useTheme();
+
   const projects = [
     {
       title: 'CorrectMe - Debate Platform',
@@ -43,11 +46,11 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" style={{ padding: '5rem 0', backgroundColor: '#f3f4f6' }}>
+    <section id="projects" style={{ padding: '5rem 0', backgroundColor: bgSecondary, transition: 'background-color 0.3s' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' }}>
         {/* Section Heading */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1F2937' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: textPrimary }}>
             My <span style={{ color: '#3B82F6' }}>Projects</span>
           </h2>
         </div>
@@ -57,9 +60,9 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index}>
               {/* Project Title & Tech Stack */}
-              <h3 style={{ fontSize: '1.35rem', fontWeight: '700', color: '#1F2937', marginBottom: '0.75rem' }}>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: '700', color: textPrimary, marginBottom: '0.75rem' }}>
                 {project.title}
-                <span style={{ color: '#6B7280', fontWeight: '400' }}> | </span>
+                <span style={{ color: textMuted, fontWeight: '400' }}> | </span>
                 <span style={{ fontStyle: 'italic', fontWeight: '600', color: '#3B82F6', fontSize: '1.1rem' }}>
                   {project.techStack}
                 </span>
@@ -68,7 +71,7 @@ const Projects = () => {
               {/* Bullet Points */}
               <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', margin: 0 }}>
                 {project.points.map((point, i) => (
-                  <li key={i} style={{ fontSize: '1rem', color: '#4B5563', lineHeight: '1.8', marginBottom: '0.25rem' }}>
+                  <li key={i} style={{ fontSize: '1rem', color: textSecondary, lineHeight: '1.8', marginBottom: '0.25rem' }}>
                     {renderText(point)}
                     {/* Add View link after last bullet */}
                     {i === project.points.length - 1 && (
